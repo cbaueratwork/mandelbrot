@@ -1,0 +1,33 @@
+application: pcdbg-bugbash-logs-python
+version: v1
+module: default
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+instance_class: F1
+automatic_scaling:
+  min_idle_instances: 3
+  max_idle_instances: automatic
+  min_pending_latency: 30ms
+  max_pending_latency: automatic
+  max_concurrent_requests: 50
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /mandelbrot-animation
+  script: mandelbrot_animation.application
+- url: /.*
+  static_files: builder.html
+  upload: builder.html
+
+libraries:
+- name: PIL
+  version: latest
+- name: numpy
+  version: latest
+- name: webapp2
+  version: latest
