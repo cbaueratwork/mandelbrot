@@ -1,4 +1,4 @@
-application: pcdbg-bugbash-logs-python
+application: mandelbrot-bauerpower-testproj2
 version: v1
 module: default
 runtime: python27
